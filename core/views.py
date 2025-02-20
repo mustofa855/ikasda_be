@@ -521,10 +521,12 @@ class StatisticsView(APIView):
         }
         return Response(data)
     
-class DireksiViewSet(viewsets.ReadOnlyModelViewSet):
+class DireksiViewSet(viewsets.ModelViewSet):
     queryset = Direksi.objects.all()
     serializer_class = DireksiSerializer
+    permission_classes = [IsAuthenticated, IsDireksi] 
 
-class BPAViewSet(viewsets.ReadOnlyModelViewSet):
+class BPAViewSet(viewsets.ModelViewSet):
     queryset = BPA.objects.all()
     serializer_class = BPASerializer
+    permission_classes = [IsAuthenticated, IsDireksi]
