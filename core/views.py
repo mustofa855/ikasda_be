@@ -10,8 +10,8 @@ from rest_framework.permissions import IsAuthenticated, BasePermission
 
 
 from core.permissions import IsDireksi, IsDireksiOrReadOnly
-from .models import AlumniProfile, AuditLog, DiscussionPost, DiscussionReply, EventRegistration, Gallery, GalleryAlbum, GalleryImage, News, Event, Donation, Feedback, StrategicDecision, Usage, User
-from .serializers import AlumniProfileSerializer, AlumniProfileUpdateSerializer, AuditLogSerializer, DiscussionPostSerializer, DiscussionReplySerializer, EventRegistrationSerializer, GalleryAlbumSerializer, GalleryImageSerializer, GallerySerializer, NewsSerializer, EventSerializer, DonationSerializer, FeedbackSerializer, NotificationSerializer, StrategicDecisionSerializer, UsageSerializer, UserSerializer, UserWithProfileSerializer
+from .models import BPA, AlumniProfile, AuditLog, Direksi, DiscussionPost, DiscussionReply, EventRegistration, Gallery, GalleryAlbum, GalleryImage, News, Event, Donation, Feedback, StrategicDecision, Usage, User
+from .serializers import AlumniProfileSerializer, AlumniProfileUpdateSerializer, AuditLogSerializer, BPASerializer, DireksiSerializer, DiscussionPostSerializer, DiscussionReplySerializer, EventRegistrationSerializer, GalleryAlbumSerializer, GalleryImageSerializer, GallerySerializer, NewsSerializer, EventSerializer, DonationSerializer, FeedbackSerializer, NotificationSerializer, StrategicDecisionSerializer, UsageSerializer, UserSerializer, UserWithProfileSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from .serializers import MyTokenObtainPairSerializer
 
@@ -520,3 +520,11 @@ class StatisticsView(APIView):
             "engagement": total_engagement,
         }
         return Response(data)
+    
+class DireksiViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Direksi.objects.all()
+    serializer_class = DireksiSerializer
+
+class BPAViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = BPA.objects.all()
+    serializer_class = BPASerializer

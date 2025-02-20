@@ -1,6 +1,6 @@
 # core/serializers.py
 from rest_framework import serializers
-from .models import AuditLog, DiscussionPost, DiscussionReply, EventRegistration, Gallery, GalleryAlbum, GalleryImage, Notification, StrategicDecision, User, AlumniProfile, News, Event, Donation, Feedback,Usage
+from .models import BPA, AuditLog, Direksi, DiscussionPost, DiscussionReply, EventRegistration, Gallery, GalleryAlbum, GalleryImage, Notification, StrategicDecision, User, AlumniProfile, News, Event, Donation, Feedback,Usage
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 class UserSerializer(serializers.ModelSerializer):
@@ -261,3 +261,13 @@ class NotificationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Notification
         fields = ['id', 'user', 'title', 'message', 'link', 'is_read', 'created_at']
+
+class DireksiSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Direksi
+        fields = ['id', 'jabatan', 'nama']
+
+class BPASerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BPA
+        fields = ['id', 'jabatan', 'nama']

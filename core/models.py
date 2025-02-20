@@ -289,3 +289,18 @@ class Notification(models.Model):
     
     def __str__(self):
         return f"{self.title} - {self.user.username if self.user else 'No User'}"
+
+class Direksi(models.Model):
+    jabatan = models.CharField(max_length=255)
+    nama = models.CharField(max_length=255)
+    # Field tambahan (misalnya, foto, deskripsi, dll) bisa ditambahkan jika diperlukan.
+
+    def __str__(self):
+        return f"{self.jabatan} - {self.nama}"
+
+class BPA(models.Model):
+    jabatan = models.CharField(max_length=255)
+    nama = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f"{self.jabatan} - {self.nama}"
