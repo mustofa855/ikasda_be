@@ -1,0 +1,22 @@
+# Python bytecode
+*.pyc
+__pycache__/
+
+# Virtual environment (jika secara tidak sengaja termasuk)
+env/
+venv/
+
+# Database (jika menggunakan SQLite)
+db.sqlite3
+
+# File media yang diupload
+media/
+
+# File konfigurasi rahasia
+.env
+
+# File log
+*.log
+
+# File migrations (opsional, tergantung kebijakan proyek)
+# core/migrations/*
