@@ -524,9 +524,17 @@ class StatisticsView(APIView):
 class DireksiViewSet(viewsets.ModelViewSet):
     queryset = Direksi.objects.all()
     serializer_class = DireksiSerializer
-    permission_classes = [IsAuthenticated, IsDireksi] 
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [permissions.AllowAny()]
+        return [permissions.IsAuthenticated(), IsDireksi()]
 
 class BPAViewSet(viewsets.ModelViewSet):
     queryset = BPA.objects.all()
     serializer_class = BPASerializer
-    permission_classes = [IsAuthenticated, IsDireksi]
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [permissions.AllowAny()]
+        return [permissions.IsAuthenticated(), IsDireksi()]
